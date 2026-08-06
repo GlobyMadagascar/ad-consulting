@@ -50,7 +50,7 @@
 <header class="header header--over-dark">
   <div class="container header__inner">
     <a class="logo" href="index.html" aria-label="AD Consulting et Formation — accueil">
-      <span class="logo__mark" aria-hidden="true">AD</span>
+      <img class="logo__img" src="assets/img/logo.png" alt="AD Consulting et Formation" width="52" height="52">
       <span class="logo__text">
         <span class="logo__name">AD Consulting</span>
         <span class="logo__tag">et Formation</span>
@@ -81,7 +81,7 @@
 <main>
 
 <!-- ============================ HÉROS ============================ -->
-<section class="hero">
+<section class="hero hero--photo">
   <div class="container hero__grid">
     <div>
       <h1>Créez votre entreprise<br><span class="grad">en toute sérénité</span></h1>
@@ -329,13 +329,15 @@
     <div class="split__panel reveal">
       <h3>Ils nous ont fait confiance</h3>
       <p>Nos partenaires institutionnels — les organismes qui financent et accompagnent l'entrepreneuriat à Mayotte à nos côtés.</p>
-      <ul class="checks">
-        <li>Conseil Régional de Mayotte</li>
-        <li>Initiative Mayotte</li>
-        <li>GAL Nord</li>
-        <li>Invest DOM</li>
-        <li>GIP Europe</li>
-      </ul>
+      <!-- Logos partenaires : remplacer chaque <span class="logo-card__ph"> par
+           <img src="assets/img/partenaires/xxx.png" alt="…"> dès réception des fichiers. -->
+      <div class="logo-grid logo-grid--panel">
+        <div class="logo-card"><span class="logo-card__ph">CR</span><span class="logo-card__name">Conseil Régional de Mayotte</span></div>
+        <div class="logo-card"><span class="logo-card__ph">IM</span><span class="logo-card__name">Initiative Mayotte</span></div>
+        <div class="logo-card"><span class="logo-card__ph">GN</span><span class="logo-card__name">GAL Nord</span></div>
+        <div class="logo-card"><span class="logo-card__ph">ID</span><span class="logo-card__name">Invest DOM</span></div>
+        <div class="logo-card"><span class="logo-card__ph">GE</span><span class="logo-card__name">GIP Europe</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -444,7 +446,7 @@
     <div class="footer__grid">
       <div>
         <a class="logo" href="index.html">
-          <span class="logo__mark" aria-hidden="true">AD</span>
+          <img class="logo__img" src="assets/img/logo.png" alt="AD Consulting et Formation" width="52" height="52">
           <span class="logo__text">
             <span class="logo__name">AD Consulting</span>
             <span class="logo__tag">et Formation</span>

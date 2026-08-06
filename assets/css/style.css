@@ -241,6 +241,11 @@ p:last-child { margin-bottom: 0; }
 
 /* Logo */
 .logo { display: flex; align-items: center; gap: 12px; flex: none; }
+.logo__img {
+  width: 52px; height: 52px; flex: none;
+  object-fit: contain;
+  display: block;
+}
 .logo__mark {
   width: 44px; height: 44px; flex: none;
   border-radius: 13px;
@@ -341,6 +346,25 @@ p:last-child { margin-bottom: 0; }
     radial-gradient(760px 560px at 55% 118%, rgba(255, 107, 26, .12), transparent 62%),
     linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 45%, var(--navy-700) 100%);
 }
+/* Variante avec photo de fond : l'overlay sombre garde le texte lisible.
+   Si assets/img/hero.jpg est absente, l'overlay + le fond marine restent élégants. */
+.hero--photo::before {
+  background:
+    linear-gradient(108deg, rgba(6,15,38,.95) 0%, rgba(9,19,45,.86) 38%, rgba(15,35,80,.55) 72%, rgba(15,35,80,.30) 100%),
+    radial-gradient(900px 520px at 88% -8%, rgba(255,107,26,.26), transparent 58%),
+    url("../img/hero.jpg") center right / cover no-repeat,
+    var(--navy-900);
+}
+@media (max-width: 1080px) {
+  .hero--photo::before {
+    background:
+      linear-gradient(160deg, rgba(6,15,38,.95) 0%, rgba(10,22,51,.90) 55%, rgba(15,35,80,.72) 100%),
+      radial-gradient(700px 460px at 80% -8%, rgba(255,107,26,.24), transparent 60%),
+      url("../img/hero.jpg") center / cover no-repeat,
+      var(--navy-900);
+  }
+}
+
 /* Trame fine */
 .hero::after {
   content: "";
@@ -819,6 +843,35 @@ p:last-child { margin-bottom: 0; }
 }
 .partner:hover { transform: translateY(-3px); border-color: var(--orange); }
 
+/* ---------- Grille de logos partenaires ---------- */
+.logo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.logo-grid--panel { grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
+.logo-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 16px 14px;
+  min-height: 96px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px;
+  text-align: center;
+  box-shadow: var(--sh-xs);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.logo-card:hover { transform: translateY(-4px); box-shadow: var(--sh); }
+.logo-card img { max-height: 52px; max-width: 100%; object-fit: contain; }
+.logo-card__name {
+  font-size: .74rem; font-weight: 800; line-height: 1.25;
+  color: var(--navy-700); letter-spacing: -.01em;
+}
+/* Pastille monogramme en attendant le logo officiel */
+.logo-card__ph {
+  width: 40px; height: 40px; border-radius: 11px;
+  background: linear-gradient(140deg, var(--navy-700), var(--navy-500));
+  color: #fff; display: grid; place-items: center;
+  font-weight: 800; font-size: .9rem; letter-spacing: -.02em;
+}
+@media (max-width: 900px)  { .logo-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 520px)  { .logo-grid, .logo-grid--panel { grid-template-columns: repeat(2, 1fr); } }
+
 /* ---------- Témoignages ---------- */
 .quote {
   position: relative;
@@ -1245,6 +1298,7 @@ p:last-child { margin-bottom: 0; }
 .footer li { margin-bottom: 12px; }
 .footer .logo__name { color: var(--white); }
 .footer .logo__mark { background: var(--white); color: var(--navy-800); }
+.footer .logo__img { width: 56px; height: 56px; }
 .footer__about { margin-top: 22px; max-width: 30em; line-height: 1.65; }
 .footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, .1);
