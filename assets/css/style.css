@@ -346,23 +346,36 @@ p:last-child { margin-bottom: 0; }
     radial-gradient(760px 560px at 55% 118%, rgba(255, 107, 26, .12), transparent 62%),
     linear-gradient(160deg, var(--navy-900) 0%, var(--navy-800) 45%, var(--navy-700) 100%);
 }
-/* Variante avec photo de fond : l'overlay sombre garde le texte lisible.
-   Si assets/img/hero.jpg est absente, l'overlay + le fond marine restent élégants. */
+/* Variante avec photo de fond : les personnes restent visibles à droite,
+   l'overlay sombre à gauche garde le texte lisible. Fallback marine si absente. */
+.hero--photo { padding-top: calc(var(--header-h) + 96px); padding-bottom: 108px; }
 .hero--photo::before {
   background:
-    linear-gradient(108deg, rgba(6,15,38,.95) 0%, rgba(9,19,45,.86) 38%, rgba(15,35,80,.55) 72%, rgba(15,35,80,.30) 100%),
-    radial-gradient(900px 520px at 88% -8%, rgba(255,107,26,.26), transparent 58%),
-    url("../img/hero.jpg") center right / cover no-repeat,
+    linear-gradient(100deg,
+      rgba(6,15,38,.95) 0%,
+      rgba(8,18,44,.90) 26%,
+      rgba(10,22,51,.66) 45%,
+      rgba(12,28,66,.30) 60%,
+      rgba(15,35,80,.06) 76%,
+      rgba(15,35,80,0) 88%),
+    url("../img/hero.jpg") right center / cover no-repeat,
     var(--navy-900);
 }
+.hero__content { position: relative; z-index: 1; max-width: 600px; }
+
 @media (max-width: 1080px) {
+  .hero--photo { padding-bottom: 88px; }
   .hero--photo::before {
     background:
-      linear-gradient(160deg, rgba(6,15,38,.95) 0%, rgba(10,22,51,.90) 55%, rgba(15,35,80,.72) 100%),
-      radial-gradient(700px 460px at 80% -8%, rgba(255,107,26,.24), transparent 60%),
-      url("../img/hero.jpg") center / cover no-repeat,
+      linear-gradient(178deg,
+        rgba(6,15,38,.93) 0%,
+        rgba(8,18,44,.86) 38%,
+        rgba(10,22,51,.60) 72%,
+        rgba(12,28,66,.42) 100%),
+      url("../img/hero.jpg") 70% center / cover no-repeat,
       var(--navy-900);
   }
+  .hero__content { max-width: 100%; }
 }
 
 /* Trame fine */
